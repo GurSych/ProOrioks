@@ -6,7 +6,7 @@
 
 using namespace gst;
 
-Application::Application() {
+Application::Application(cli::CommandManager& commandManager) : commandManager(commandManager) {
     init();
 }
 
@@ -33,7 +33,7 @@ int Application::update() {
         return 0;
     }
     std::cout << std::endl;
-    int result = commandManager.executeCommand(tokens[0], std::vector<std::string>{tokens.begin()+1,tokens.end()});
+    int result = commandManager.executeCommand(tokens[0],std::vector<std::string>{tokens.begin()+1,tokens.end()},*this);
     std::cout << std::endl;
     return result;
 }

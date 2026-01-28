@@ -1,6 +1,9 @@
 // Tiny and simple library for console colorization
 // by Gur-Sych (https://github.com/GurSych)
 
+#ifndef TINY_COLOR_HPP
+#define TINY_COLOR_HPP
+
 #pragma once
 #include <initializer_list>
 #include <iostream>
@@ -54,3 +57,5 @@ namespace tcl {
     }
 
 }
+
+#endif // TINY_COLOR_HPP
