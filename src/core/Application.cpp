@@ -6,7 +6,8 @@
 
 using namespace gst;
 
-Application::Application(cli::CommandManager& commandManager) : commandManager(commandManager) {
+Application::Application(cli::CommandManager& commandManager, net::OrioksHandler& orioksHandler, storage::DataStorage& dataStorage)
+        : commandManager_(commandManager), orioksHandler_(orioksHandler), dataStorage_(dataStorage) {
     init();
 }
 
@@ -16,7 +17,6 @@ void Application::run() {
     while (true) {
         if (update() == -1) break;
     }
-    std::cout << "\nGoodbye! Have a great day!\n" << std::endl;
 }
 
 void Application::init() { }
@@ -27,13 +27,12 @@ int Application::update() {
     std::getline(std::cin, input);
     auto tokens = strtools::split(input);
     if (tokens.empty())      return 0;
-    if (tokens[0] == "quit") return -1;
-    if (!commandManager.hasCommand(tokens[0])) {
+    if (!commandManager_.hasCommand(tokens[0])) {
         std::cerr << tcl::colorize(std::string{"Unknown command: "}+tokens[0],{tcl::RED}) << std::endl;
         return 0;
     }
     std::cout << std::endl;
-    int result = commandManager.executeCommand(tokens[0],std::vector<std::string>{tokens.begin()+1,tokens.end()},*this);
+    int result = commandManager_.executeCommand(tokens[0],std::vector<std::string>{tokens.begin()+1,tokens.end()},*this);
     std::cout << std::endl;
     return result;
 }
