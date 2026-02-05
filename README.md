@@ -1,7 +1,7 @@
 # ProOrioks
 
 **ProOrioks is my console mini-program to access information from MIET's Orioks system**<br>
-_Latest version: 0.2.1 Pre-Alpha_
+_Latest version: 0.2.2 Alpha_
 
 # Using program
 
@@ -14,10 +14,11 @@ Usage: command \[options\]
 > You can always check the command list via `help` command
 
 # Tech stack and dependencies
-- C++17
+- C++20
 - CMake
-- cpr (C++ REST client)
-- nlohmann_json (JSON library)
+- libcpr/cpr (Request library)
+- nlohmann/json (JSON library)
+- matheusgomes28/base64pp (Base64 encoding library)
 
 > Dependencies are automatically fetched from GitHub using CMake
 
@@ -29,7 +30,9 @@ Usage: command \[options\]
     │  │  └─ Application.cpp               Application class implementation
     │  ├─ cli/                             Command line interface files
     │  │  ├─ commands/                     Commands source files
-    │  │  │  └─ _commands source files_    _Commands source files_
+    │  │  │  └─ ...                        Commands source files
+    │  │  ├─ templates/                    CLI templates source files
+    │  │  │  └─ ...                        CLI templates source files
     │  │  ├─ Command.hpp                   Command class header
     │  │  ├─ Command.cpp                   Command class implementation
     │  │  ├─ CommandManager.hpp            CommandManager class header

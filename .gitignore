@@ -1,2 +1,4 @@
 # Local CMake Build
 /build/
+# ZED files
+/.zed/

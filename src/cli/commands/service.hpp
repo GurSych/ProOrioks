@@ -10,7 +10,9 @@
 namespace cmd {
     class Service : public cli::Command {
     public:
-        Service() : cli::Command("service", "Display service information", "hide") { }
+        Service() : cli::Command("service", "Display service information",
+                            "Command displays service information about the application like version, build information, etc.\n"
+                            "Also includes some terminal tests", "hide") { }
 
         int execute(const std::vector<std::string>& args, gst::Application& app) override {
             std::cout << "Service information\n" << std::endl;

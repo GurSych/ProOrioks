@@ -4,6 +4,7 @@
 #ifndef TINY_COLOR_HPP
 #define TINY_COLOR_HPP
 
+#include <cstddef>
 #pragma once
 #include <initializer_list>
 #include <iostream>
@@ -53,6 +54,34 @@ namespace tcl {
         }
         out.pop_back();
         out += "m" + text + "\033[" + std::to_string(RESET) + "m";
+        return out;
+    }
+
+    inline std::string clear_line() {
+        return "\033[2K";
+    }
+
+    inline std::string up(size_t lines) {
+        std::string out = "\033[";
+        out += std::to_string(lines) + "A";
+        return out;
+    }
+
+    inline std::string down(size_t lines) {
+        std::string out = "\033[";
+        out += std::to_string(lines) + "B";
+        return out;
+    }
+
+    inline std::string left(size_t columns) {
+        std::string out = "\033[";
+        out += std::to_string(columns) + "D";
+        return out;
+    }
+
+    inline std::string right(size_t columns) {
+        std::string out = "\033[";
+        out += std::to_string(columns) + "C";
         return out;
     }
 

@@ -1,6 +1,6 @@
 #include "Application.hpp"
 #include "../cli/TinyColor.hpp"
-#include "../tools/StringTools.hpp"
+#include "../cli/templates/OrioksLine.hpp"
 #include <iostream>
 #include <string>
 
@@ -19,14 +19,17 @@ void Application::run() {
     }
 }
 
-void Application::init() { }
+void Application::init() {
+    std::string api_token = dataStorage_.getApiToken();
+    orioksHandler_.set_api_token(api_token);
+}
 
 int Application::update() {
     std::string input{};
-    std::cout << tcl::colorize("ProOrioks",{tcl::WHITE,tcl::BKG_CYAN}) + " > ";
+    std::cout << tmpl::OrioksLine();
     std::getline(std::cin, input);
     auto tokens = strtools::split(input);
-    if (tokens.empty())      return 0;
+    if (tokens.empty()) return 0;
     if (!commandManager_.hasCommand(tokens[0])) {
         std::cerr << tcl::colorize(std::string{"Unknown command: "}+tokens[0],{tcl::RED}) << std::endl;
         return 0;

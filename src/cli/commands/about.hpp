@@ -10,7 +10,8 @@
 namespace cmd {
     class About : public cli::Command {
     public:
-        About() : Command("about", "Display information about the program", "system") { }
+        About() : Command("about", "Display information about the program",
+                    "Command display information about the program", "system") { }
 
         int execute(const std::vector<std::string>& args, gst::Application& app) override {
             std::cout << tcl::colorize("ProOrioks",{tcl::BOLD,tcl::WHITE,tcl::BKG_CYAN})

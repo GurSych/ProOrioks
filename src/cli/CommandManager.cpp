@@ -1,5 +1,7 @@
 #include "CommandManager.hpp"
 #include <iostream>
+#include "TinyColor.hpp"
+#include "../tools/StringTools.hpp"
 
 using namespace cli;
 
@@ -20,6 +22,17 @@ void CommandManager::printCommands(const std::string& tag) const {
         if (!tag.empty() && command.second->tag() == tag)
             std::cout << "\t" << command.second->name() << " — " << command.second->description() << std::endl;
     }
+}
+
+int CommandManager::printDetailedDescription(const std::string& command) const {
+    auto iter = commands_.find(command);
+    if (iter == commands_.end()) {
+        std::cout << tcl::colorize(std::string{"Unknown command: "+command},tcl::RED) << std::endl;
+        return 1;
+    }
+    std::cout << tcl::colorize(iter->second->name(),tcl::BOLD) << std::endl;
+    std::cout << iter->second->long_description() << std::endl;
+    return 0;
 }
 
 bool CommandManager::hasCommand(const std::string& name) {

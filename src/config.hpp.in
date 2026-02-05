@@ -15,4 +15,6 @@
 
 #define __ORIOKS_API_URL__       "@ORIOKS_API_URL@"
 
+#define __TEST_JSON_API_URL__    "@TEST_JSON_API_URL@"
+
 #endif // CONFIG_HPP

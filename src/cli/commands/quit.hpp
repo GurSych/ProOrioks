@@ -10,7 +10,7 @@
 namespace cmd {
     class Quit : public cli::Command {
     public:
-        Quit() : Command("quit", "Quit the program", "system") { }
+        Quit() : Command("quit", "Quit the program", "Command provides a safe way to quit the program", "system") { }
 
         int execute(const std::vector<std::string>& args, gst::Application& app) override {
             app.dataStorage().quit();
