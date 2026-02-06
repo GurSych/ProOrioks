@@ -28,7 +28,11 @@ int Application::update() {
     std::string input{};
     std::cout << tmpl::OrioksLine();
     std::getline(std::cin, input);
-    auto tokens = strtools::split(input);
+    return executeLine(input);
+}
+
+int Application::executeLine(const std::string& line) {
+    auto tokens = strtools::split(line);
     if (tokens.empty()) return 0;
     if (!commandManager_.hasCommand(tokens[0])) {
         std::cerr << tcl::colorize(std::string{"Unknown command: "}+tokens[0],{tcl::RED}) << std::endl;

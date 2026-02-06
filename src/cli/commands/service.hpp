@@ -6,6 +6,7 @@
 #include "../Command.hpp"
 #include "config.hpp"
 #include <iostream>
+#include "../templates/Tables.hpp"
 
 namespace cmd {
     class Service : public cli::Command {
@@ -30,7 +31,11 @@ namespace cmd {
                 << tcl::colorize(" #",{tcl::CYAN,tcl::BKG_CYAN})   << tcl::colorize(" #",{tcl::WHITE,tcl::BKG_WHITE})     << std::endl;
             std::cout << "Russian alphabet: " << "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ" << std::endl
                       << "                  " << "абвгдеёжзийклмнопрстуфхцчшщъыьэюя" << std::endl;
-            std::cout << "Special UNICODE symbols: " << "◎ —" << std::endl;
+            std::cout << "Special UNICODE symbols: " << "◎ — │ ┌ ┬ ┐ ├ ┼ ┤ └ ┴ ┘" << std::endl;
+            tmpl::HTable table{"Test Table",{"Header 1", "Header 2"}};
+            table.addRow({"Row 1", "Row 2"});
+            table.addRow({"Row 3", "Roooooooooooooooow 4\nNew line"});
+            table.print(true);
             return 0;
         }
     };

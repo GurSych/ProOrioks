@@ -19,12 +19,12 @@ namespace cmd {
                 return 1;
             }
             auto response = app.orioksHandler().get("/student");
-            json data = json::parse(response.text);
             if(response.status_code != 200) {
                 std::cerr << tcl::colorize("Failed to fetch profile information =(", tcl::RED) << std::endl;
                 std::cerr << response.text << std::endl;
                 return 1;
             }
+            json data = json::parse(response.text);
             std::cout << tcl::colorize("Orioks profile information\n", tcl::BOLD) << std::endl;
             std::cout << tcl::colorize(std::string{"Full name: "} + data["full_name"].get<std::string>(), tcl::BOLD) << std::endl;
             std::cout << "Student's record book: " << data["record_book_id"].get<int>() << std::endl;

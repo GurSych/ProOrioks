@@ -1,14 +1,17 @@
 # ProOrioks
 
 **ProOrioks is my console mini-program to access information from MIET's Orioks system**<br>
-_Latest version: 0.2.2 Alpha_
+_Latest version: 0.2.3 Alpha_
 
 # Using program
 
 > Program is in development so this section is updated together with program itself
 
 Just run the program, it will start its own command line interface<br>
-Usage: command \[options\]
+Usage: command \[options\]<br><br>
+
+or you can run the program itself with a command you want to execute, this command will be executed and the program will quit automatically<br>
+Usage: ProOrioks command \[options\]
 
 > [!NOTE]
 > You can always check the command list via `help` command

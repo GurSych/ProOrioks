@@ -21,6 +21,12 @@ int main(int argc, char* argv[]) {
     app.commandManager().registerCommand(std::make_unique<cmd::Login>());
     app.commandManager().registerCommand(std::make_unique<cmd::Profile>());
 
+    if (argc > 1) {
+        std::string line{};
+        for (unsigned int i{1}; i < argc; ++i) line += std::string{argv[i]} + " ";
+        return app.executeLine(line);
+    }
+
     app.run();
 
     return 0;

@@ -20,6 +20,7 @@ namespace gst {
         ~Application();
 
         void run();
+        int executeLine(const std::string& line);
 
         cli::CommandManager&   commandManager() { return commandManager_; }
         net::OrioksHandler&    orioksHandler()  { return orioksHandler_; }
