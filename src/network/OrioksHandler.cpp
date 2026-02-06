@@ -48,7 +48,3 @@ cpr::Header OrioksHandler::make_header(const cpr::Header& extra_header) {
     }
     return header;
 }
-
-std::string OrioksHandler::str_to_base64(const std::string& str) {
-    return base64pp::encode({reinterpret_cast<uint8_t const*>(str.data()),reinterpret_cast<uint8_t const*>(str.data()) + str.size()});
-}

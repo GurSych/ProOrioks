@@ -5,8 +5,8 @@ set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(APP_VERSION_MAJOR    "0")
-set(APP_VERSION_MINOR    "2")
-set(APP_VERSION_PATCH    "3")
+set(APP_VERSION_MINOR    "3")
+set(APP_VERSION_PATCH    "1")
 set(APP_VERSION_PRTAG    "Alpha")
 
 set(ORIOKS_API_URL       "https://orioks.miet.ru/api/v1")

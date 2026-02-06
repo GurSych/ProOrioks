@@ -5,6 +5,7 @@
 #include "../../TinyColor.hpp"
 #include "../../Command.hpp"
 #include "../../../network/OrioksHandler.hpp"
+#include "../../../tools/StringTools.hpp"
 #include <iostream>
 
 namespace cmd {
@@ -82,7 +83,7 @@ namespace cmd {
                 }
             }
             std::string login_info = username + ":" + password;
-            auto login_base64 = app.orioksHandler().str_to_base64(login_info);
+            auto login_base64 = strtools::str_to_base64(login_info);
             cpr::Header auth_header = {{"Authorization","Basic " + login_base64}};
             cpr::Session session{};
             session.SetUrl(app.orioksHandler().make_url("/auth"));

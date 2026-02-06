@@ -1,6 +1,7 @@
 #include "DataStorage.hpp"
 #include <fstream>
 #include "../cli/TinyColor.hpp"
+#include "../tools/StringTools.hpp"
 
 using namespace storage;
 
@@ -43,7 +44,8 @@ void DataStorage::save_config(const json& config) {
     if (!file.is_open()) {
         throw std::runtime_error("Application failed to access a configuration file");
     }
-    file << std::setw(4) << config << std::endl;
+    std::string dump = config.dump();
+    file << strtools::str_to_base64(dump) << std::endl;
 }
 
 void DataStorage::get_config() {
@@ -51,7 +53,9 @@ void DataStorage::get_config() {
     if (!file.is_open()) {
         throw std::runtime_error("Application failed to access a configuration file");
     }
-    file >> config_;
+    std::string b64((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
+    std::string decoded = strtools::base64_to_str(b64);
+    config_ = json::parse(decoded);
 }
 
 bool DataStorage::hasLoginInfo() const {

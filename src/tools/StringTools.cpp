@@ -17,3 +17,16 @@ std::vector<std::string> strtools::split(const std::string& str, char delimiter)
     }
     return output;
 }
+
+std::string strtools::str_to_base64(const std::string& str) {
+    return base64pp::encode({reinterpret_cast<uint8_t const*>(str.data()),reinterpret_cast<uint8_t const*>(str.data()) + str.size()});
+}
+
+std::string strtools::base64_to_str(const std::string& str) {
+    std::string b64 = str;
+    while (!b64.empty() && (b64.back() == '\n' || b64.back() == '\r' || b64.back() == ' ' || b64.back() == '\t'))
+        b64.pop_back();
+    auto decoded = base64pp::decode(b64);
+    if(!decoded) return {};
+    return std::string{decoded->begin(), decoded->end()};
+}

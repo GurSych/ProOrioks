@@ -31,9 +31,12 @@ void HTable::addRow(const std::vector<std::string>& values) {
 void HTable::print(bool with_name) const {
     if(with_name) {
         size_t table_width = std::accumulate(max_column_widths_.begin(), max_column_widths_.end(), 0) + 3*columns_.size() + 1;
-        size_t left_padding  = (table_width - name_.size()) / 2;
-        size_t right_padding = table_width - name_.size() - left_padding;
-        std::cout << "┌" <<  std::string{"—"}*(left_padding-2) << " " << tcl::colorize(name_,tcl::BOLD) << " " << std::string{"—"}*(right_padding-2) << "┐" << std::endl;
+        if(name_.size() > table_width - 4) std::cout << "┌ " << tcl::colorize(name_,tcl::BOLD) << std::endl;
+        else {
+            size_t left_padding  = (table_width - name_.size()) / 2;
+            size_t right_padding = table_width - name_.size() - left_padding;
+            std::cout << "┌" <<  std::string{"—"}*(left_padding-2) << " " << tcl::colorize(name_,tcl::BOLD) << " " << std::string{"—"}*(right_padding-2) << "┐" << std::endl;
+        }
     }
     std::cout << "┌";
     for (size_t i{}; i < columns_.size(); ++i) std::cout << std::string{"—"}*(max_column_widths_[i]+2) << "┬";

@@ -6,7 +6,6 @@
 #include <nlohmann/json.hpp>
 #include <string>
 #include "config.hpp"
-#include "base64pp/base64pp.h"
 
 cpr::Header operator+(const cpr::Header& lh, const cpr::Header& rh);
 
@@ -33,8 +32,6 @@ namespace net {
         cpr::Header make_header(const cpr::Header& extra_header);
         cpr::Header standard_header = {{"Accept",    "application/json"},
                                        {"User-Agent","ProOrioks/" __APP_VERSION__ " " __BUILD_OS__}};
-
-        std::string str_to_base64(const std::string& str);
 
     private:
         std::string base_url_{__ORIOKS_API_URL__};
