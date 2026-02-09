@@ -12,7 +12,7 @@ using namespace tmpl;
 
 HTable::HTable(const std::string& name, const std::vector<std::string>& columns, const size_t max_width)
     : name_(name), columns_(columns), max_width_(max_width), max_column_widths_(columns.size(), 0) {
-        for(size_t i{}; i < columns.size(); ++i) max_column_widths_[i] = std::max(max_column_widths_[i], columns[i].size());
+        for(size_t i{}; i < columns.size(); ++i) max_column_widths_[i] = std::max(max_column_widths_[i], strtools::utf8_strlen(columns[i]));
     }
 
 void HTable::addRow(const std::vector<std::string>& values) {
@@ -23,7 +23,7 @@ void HTable::addRow(const std::vector<std::string>& values) {
     for (size_t i{}; i < values.size(); ++i) {
         auto lines = strtools::split(values[i], '\n');
         max_row_heights_.back() = std::max(max_row_heights_.back(), lines.size());
-        max_column_widths_[i]   = std::max(max_column_widths_[i], std::max_element(lines.begin(), lines.end(), [](const std::string& a, const std::string& b) { return a.size() < b.size(); })->size());
+        max_column_widths_[i]   = std::max(max_column_widths_[i], strtools::utf8_strlen(*std::max_element(lines.begin(), lines.end(), [](const std::string& a, const std::string& b) { return strtools::utf8_strlen(a) < strtools::utf8_strlen(b); })));
     }
     rows_.push_back(values);
 }
@@ -31,10 +31,10 @@ void HTable::addRow(const std::vector<std::string>& values) {
 void HTable::print(bool with_name) const {
     if(with_name) {
         size_t table_width = std::accumulate(max_column_widths_.begin(), max_column_widths_.end(), 0) + 3*columns_.size() + 1;
-        if(name_.size() > table_width - 4) std::cout << "┌ " << tcl::colorize(name_,tcl::BOLD) << std::endl;
+        if(strtools::utf8_strlen(name_) > table_width - 4) std::cout << "┌ " << tcl::colorize(name_,tcl::BOLD) << std::endl;
         else {
-            size_t left_padding  = (table_width - name_.size()) / 2;
-            size_t right_padding = table_width - name_.size() - left_padding;
+            size_t left_padding  = (table_width - strtools::utf8_strlen(name_)) / 2;
+            size_t right_padding = table_width - strtools::utf8_strlen(name_) - left_padding;
             std::cout << "┌" <<  std::string{"—"}*(left_padding-2) << " " << tcl::colorize(name_,tcl::BOLD) << " " << std::string{"—"}*(right_padding-2) << "┐" << std::endl;
         }
     }
@@ -42,8 +42,8 @@ void HTable::print(bool with_name) const {
     for (size_t i{}; i < columns_.size(); ++i) std::cout << std::string{"—"}*(max_column_widths_[i]+2) << "┬";
     std::cout << tcl::left(1) << "┐" << std::endl << "│ ";
     for (size_t i{}; i < columns_.size(); ++i) {
-        size_t left_empty  = (max_column_widths_[i]-columns_[i].size())/2;
-        size_t right_empty = max_column_widths_[i]-columns_[i].size()-left_empty;
+        size_t left_empty  = (max_column_widths_[i]-strtools::utf8_strlen(columns_[i]))/2;
+        size_t right_empty = max_column_widths_[i]-strtools::utf8_strlen(columns_[i])-left_empty;
         std::cout << std::string(left_empty,' ')+tcl::colorize(columns_[i],tcl::BOLD)+std::string(right_empty,' ') << " │ ";
     }
     std::cout << std::endl << "├";
@@ -57,8 +57,8 @@ void HTable::print(bool with_name) const {
             std::cout << "│ ";
             for (size_t i{}; i < columns_.size(); ++i) {
                 if (line_i < cells_lines[i].size()) {
-                    size_t left_empty  = (max_column_widths_[i]-cells_lines[i][line_i].size())/2;
-                    size_t right_empty = max_column_widths_[i]-cells_lines[i][line_i].size()-left_empty;
+                    size_t left_empty  = (max_column_widths_[i]-strtools::utf8_strlen(cells_lines[i][line_i]))/2;
+                    size_t right_empty = max_column_widths_[i]-strtools::utf8_strlen(cells_lines[i][line_i])-left_empty;
                     std::cout << std::string(left_empty,' ')+cells_lines[i][line_i]+std::string(right_empty,' ') << " │ ";
                 } else {
                     std::cout << std::string(max_column_widths_[i], ' ') << " │ ";

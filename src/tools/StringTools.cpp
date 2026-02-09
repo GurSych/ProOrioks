@@ -18,6 +18,12 @@ std::vector<std::string> strtools::split(const std::string& str, char delimiter)
     return output;
 }
 
+std::string strtools::single_split(const std::string& str, char delimiter) {
+    size_t pos = str.find(delimiter);
+    if (pos == std::string::npos) return "";
+    return str.substr(0, pos);
+}
+
 std::string strtools::str_to_base64(const std::string& str) {
     return base64pp::encode({reinterpret_cast<uint8_t const*>(str.data()),reinterpret_cast<uint8_t const*>(str.data()) + str.size()});
 }
@@ -29,4 +35,12 @@ std::string strtools::base64_to_str(const std::string& str) {
     auto decoded = base64pp::decode(b64);
     if(!decoded) return {};
     return std::string{decoded->begin(), decoded->end()};
+}
+
+size_t strtools::utf8_strlen(const std::string& str) {
+    size_t count = 0;
+    for (unsigned char c : str) {
+        if ((c & 0xC0) != 0x80) ++count;
+    }
+    return count;
 }
