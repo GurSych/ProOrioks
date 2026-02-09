@@ -1,7 +1,7 @@
 # ProOrioks
 
 **ProOrioks is my console mini-program to access information from MIET's Orioks system**<br>
-_Latest version: 0.3.2 Alpha_
+_Latest version: 0.3.3 Alpha_
 
 # Using program
 
@@ -49,7 +49,9 @@ Usage: ProOrioks command \[options\]
     │  │  └─ DataStorage.cpp               DataStorage class implementation
     │  ├─ tools/                           Additional tools files
     │  │  ├─ StringTools.hpp               Header for StringTools functions
-    │  │  └─ StringTools.cpp               Implementation for StringTools functions
+    │  │  ├─ StringTools.cpp               Implementation for StringTools functions
+    │  │  ├─ TimeTools.hpp                 Header for TimeTools functions
+    │  │  └─ TimeTools.cpp                 Implementation for TimeTools functions
     │  ├─ config.hpp.in                    CMake configurated config defines header
     │  └─ main.cpp                         Main application file
     └─ CMakeLists.txt                      CMake configuration file

@@ -22,6 +22,20 @@ void Application::run() {
 void Application::init() {
     std::string api_token = dataStorage_.getApiToken();
     orioksHandler_.set_api_token(api_token);
+    int lessons_time = start_lessons_time;
+    for (int i = 1; i < 9; ++i) {
+        std::string start_time{}; std::string end_time{};
+        if(i == 3) {
+            start_time = timetools::to_time(lessons_time) + "\n" + timetools::to_time(lessons_time + lunch_duration_time);
+            end_time   = timetools::to_time(lessons_time + duration_lesson_time) + "\n" + timetools::to_time(lessons_time + lunch_duration_time + duration_lesson_time);
+            lessons_time += lunch_duration_time;
+        } else {
+            start_time = timetools::to_time(lessons_time);
+            end_time   = timetools::to_time(lessons_time + duration_lesson_time);
+        }
+        uni_lessons_timetable[i] = std::make_pair(start_time, end_time);
+        lessons_time += duration_lesson_time + break_duration_time;
+    }
 }
 
 int Application::update() {

@@ -4,13 +4,18 @@ project(ProOrioks)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-set(APP_VERSION_MAJOR    "0")
-set(APP_VERSION_MINOR    "3")
-set(APP_VERSION_PATCH    "2")
-set(APP_VERSION_PRTAG    "Alpha")
+set(APP_VERSION_MAJOR        "0")
+set(APP_VERSION_MINOR        "3")
+set(APP_VERSION_PATCH        "3")
+set(APP_VERSION_PRTAG        "Alpha")
 
-set(ORIOKS_API_URL       "https://orioks.miet.ru/api/v1")
-set(TEST_JSON_API_URL    "https://api.ipify.org?format=json")
+set(ORIOKS_API_URL           "https://orioks.miet.ru/api/v1")
+set(TEST_JSON_API_URL        "https://api.ipify.org?format=json")
+
+set(LESSONS_START_TIME       "09:00")
+set(LESSON_DURATION_TIME     "01:20")
+set(BREAK_DURATION_TIME      "00:10")
+set(LUNCH_DURATION_TIME      "00:30")
 
 include(FetchContent)
 

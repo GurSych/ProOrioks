@@ -27,7 +27,13 @@ void DataStorage::init() {
         };
         save_config(config);
     }
-    get_config();
+    try {
+        get_config();
+    } catch (const std::exception& e) {
+        std::cerr << tcl::colorize(e.what(), tcl::RED) << std::endl;
+        std::cerr << tcl::colorize(std::string("Please fix the configuration file manually by path: ") + config_path().string(), tcl::YELLOW) << std::endl;
+        throw std::runtime_error("Fatal error during config parsing");
+    }
 }
 
 void DataStorage::quit() {
@@ -55,7 +61,11 @@ void DataStorage::get_config() {
     }
     std::string b64((std::istreambuf_iterator<char>(file)), std::istreambuf_iterator<char>());
     std::string decoded = strtools::base64_to_str(b64);
-    config_ = json::parse(decoded);
+    try {
+        config_ = json::parse(decoded);
+    } catch (const json::exception&) {
+        throw std::runtime_error("Failed to parse configuration file");
+    }
 }
 
 bool DataStorage::hasLoginInfo() const {
