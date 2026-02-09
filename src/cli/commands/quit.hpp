@@ -1,5 +1,5 @@
-#ifndef QUIT_HPP
-#define QUIT_HPP
+#ifndef PROORIOKS_SRC_CLI_COMMANDS_QUIT_HPP
+#define PROORIOKS_SRC_CLI_COMMANDS_QUIT_HPP
 
 #pragma once
 #include "../TinyColor.hpp"
@@ -20,4 +20,4 @@ namespace cmd {
     };
 }
 
-#endif // QUIT_HPP
+#endif // PROORIOKS_SRC_CLI_COMMANDS_QUIT_HPP

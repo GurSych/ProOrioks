@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(APP_VERSION_MAJOR    "0")
 set(APP_VERSION_MINOR    "3")
-set(APP_VERSION_PATCH    "1")
+set(APP_VERSION_PATCH    "2")
 set(APP_VERSION_PRTAG    "Alpha")
 
 set(ORIOKS_API_URL       "https://orioks.miet.ru/api/v1")
@@ -41,6 +41,7 @@ add_executable(ProOrioks
     src/network/OrioksHandler.cpp
     src/storage/DataStorage.cpp
     src/tools/StringTools.cpp
+    src/tools/TimeTools.cpp
     src/cli/templates/Tables.cpp
 )
 

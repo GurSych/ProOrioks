@@ -1,5 +1,5 @@
-#ifndef TABLES_HPP
-#define TABLES_HPP
+#ifndef PROORIOKS_SRC_CLI_TEMPLATES_TABLES_HPP
+#define PROORIOKS_SRC_CLI_TEMPLATES_TABLES_HPP
 
 #pragma once
 #include <string>
@@ -22,4 +22,4 @@ namespace tmpl {
     };
 }
 
-#endif // TABLES_HPP
+#endif // PROORIOKS_SRC_CLI_TEMPLATES_TABLES_HPP

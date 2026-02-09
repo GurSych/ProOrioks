@@ -1,5 +1,5 @@
-#ifndef COMMAND_MANAGER_HPP
-#define COMMAND_MANAGER_HPP
+#ifndef PROORIOKS_SRC_CLI_COMMAND_MANAGER_HPP
+#define PROORIOKS_SRC_CLI_COMMAND_MANAGER_HPP
 
 #pragma once
 #include "Command.hpp"
@@ -36,4 +36,4 @@ namespace cli {
 
 }
 
-#endif // COMMAND_MANAGER_HPP
+#endif // PROORIOKS_SRC_CLI_COMMAND_MANAGER_HPP

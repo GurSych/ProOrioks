@@ -1,5 +1,5 @@
-#ifndef ABOUT_HPP
-#define ABOUT_HPP
+#ifndef PROORIOKS_SRC_CLI_COMMANDS_ABOUT_HPP
+#define PROORIOKS_SRC_CLI_COMMANDS_ABOUT_HPP
 
 #pragma once
 #include "../TinyColor.hpp"
@@ -26,4 +26,4 @@ namespace cmd {
     };
 }
 
-#endif // ABOUT_HPP
+#endif // PROORIOKS_SRC_CLI_COMMANDS_ABOUT_HPP

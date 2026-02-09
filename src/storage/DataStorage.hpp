@@ -1,5 +1,5 @@
-#ifndef DATA_STORAGE_HPP
-#define DATA_STORAGE_HPP
+#ifndef PROORIOKS_SRC_STORAGE_DATA_STORAGE_HPP
+#define PROORIOKS_SRC_STORAGE_DATA_STORAGE_HPP
 
 #pragma once
 #include <filesystem>
@@ -40,4 +40,4 @@ namespace storage {
     };
 }
 
-#endif // DATA_STORAGE_HPP
+#endif // PROORIOKS_SRC_STORAGE_DATA_STORAGE_HPP

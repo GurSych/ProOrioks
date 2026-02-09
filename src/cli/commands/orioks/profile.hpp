@@ -1,5 +1,5 @@
-#ifndef PROFILE_HPP
-#define PROFILE_HPP
+#ifndef PROORIOKS_SRC_CLI_COMMANDS_ORIOKS_PROFILE_HPP
+#define PROORIOKS_SRC_CLI_COMMANDS_ORIOKS_PROFILE_HPP
 
 #pragma once
 #include "../../TinyColor.hpp"
@@ -39,4 +39,4 @@ namespace cmd {
     };
 }
 
-#endif // PROFILE_HPP
+#endif // PROORIOKS_SRC_CLI_COMMANDS_ORIOKS_PROFILE_HPP

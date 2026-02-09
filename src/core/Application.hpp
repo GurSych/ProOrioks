@@ -1,5 +1,5 @@
-#ifndef APPLICATION_HPP
-#define APPLICATION_HPP
+#ifndef PROORIOKS_SRC_APPLICATION_APPLICATION_HPP
+#define PROORIOKS_SRC_APPLICATION_APPLICATION_HPP
 
 #pragma once
 #include "../cli/CommandManager.hpp"
@@ -36,4 +36,4 @@ namespace gst {
     };
 }
 
-#endif // APPLICATION_HPP
+#endif // PROORIOKS_SRC_APPLICATION_APPLICATION_HPP

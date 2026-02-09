@@ -1,5 +1,5 @@
-#ifndef STRING_TOOLS_HPP
-#define STRING_TOOLS_HPP
+#ifndef PROORIOKS_SRC_TOOLS_STRING_TOOLS_HPP
+#define PROORIOKS_SRC_TOOLS_STRING_TOOLS_HPP
 
 #pragma once
 #include <string>
@@ -14,4 +14,4 @@ namespace strtools {
     std::string base64_to_str(const std::string& str);
 }
 
-#endif // STRING_TOOLS_HPP
+#endif // PROORIOKS_SRC_TOOLS_STRING_TOOLS_HPP

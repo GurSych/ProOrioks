@@ -1,5 +1,5 @@
-#ifndef ORIOKS_HANDLER_HPP
-#define ORIOKS_HANDLER_HPP
+#ifndef PROORIOKS_SRC_NETWORK_ORIOKS_HANDLER_HPP
+#define PROORIOKS_SRC_NETWORK_ORIOKS_HANDLER_HPP
 
 #pragma once
 #include <cpr/cpr.h>
@@ -39,4 +39,4 @@ namespace net {
     };
 }
 
-#endif // ORIOKS_HANDLER_HPP
+#endif // PROORIOKS_SRC_NETWORK_ORIOKS_HANDLER_HPP

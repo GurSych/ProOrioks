@@ -1,5 +1,5 @@
-#ifndef CONFIG_HPP
-#define CONFIG_HPP
+#ifndef PROORIOKS_SRC_CONFIG_HPP
+#define PROORIOKS_SRC_CONFIG_HPP
 
 #pragma once
 
@@ -17,4 +17,4 @@
 
 #define __TEST_JSON_API_URL__    "@TEST_JSON_API_URL@"
 
-#endif // CONFIG_HPP
+#endif // PROORIOKS_SRC_CONFIG_HPP

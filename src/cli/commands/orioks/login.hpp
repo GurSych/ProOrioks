@@ -1,5 +1,5 @@
-#ifndef LOGIN_HPP
-#define LOGIN_HPP
+#ifndef PROORIOKS_SRC_CLI_COMMANDS_ORIOKS_LOGIN_HPP
+#define PROORIOKS_SRC_CLI_COMMANDS_ORIOKS_LOGIN_HPP
 
 #pragma once
 #include "../../TinyColor.hpp"
@@ -108,4 +108,4 @@ namespace cmd {
     };
 }
 
-#endif // LOGIN_HPP
+#endif // PROORIOKS_SRC_CLI_COMMANDS_ORIOKS_LOGIN_HPP

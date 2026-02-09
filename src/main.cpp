@@ -6,6 +6,7 @@
 #include "cli/commands/check-connection.hpp"
 #include "cli/commands/orioks/login.hpp"
 #include "cli/commands/orioks/profile.hpp"
+#include "cli/commands/orioks/schedule.hpp"
 #include <memory>
 
 int main(int argc, char* argv[]) {
@@ -20,6 +21,7 @@ int main(int argc, char* argv[]) {
     app.commandManager().registerCommand(std::make_unique<cmd::Check>());
     app.commandManager().registerCommand(std::make_unique<cmd::Login>());
     app.commandManager().registerCommand(std::make_unique<cmd::Profile>());
+    app.commandManager().registerCommand(std::make_unique<cmd::Schedule>());
 
     if (argc > 1) {
         std::string line{};

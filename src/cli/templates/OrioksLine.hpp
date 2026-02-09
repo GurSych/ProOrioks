@@ -1,5 +1,5 @@
-#ifndef ORIOKS_LINE_HPP
-#define ORIOKS_LINE_HPP
+#ifndef PROORIOKS_SRC_CLI_TEMPLATES_ORIOKS_LINE_HPP
+#define PROORIOKS_SRC_CLI_TEMPLATES_ORIOKS_LINE_HPP
 
 #pragma once
 #include <string>
@@ -13,4 +13,4 @@ namespace tmpl {
     }
 }
 
-#endif // ORIOKS_LINE_HPP
+#endif // PROORIOKS_SRC_CLI_TEMPLATES_ORIOKS_LINE_HPP
