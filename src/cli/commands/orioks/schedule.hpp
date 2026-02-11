@@ -16,7 +16,7 @@ namespace cmd {
     class Schedule : public cli::Command {
     public:
         Schedule() : Command("schedule", "Display your schedule",
-            "Command displays schedule of chosen group (user group by default).\n"
+            "Command displays schedule of chosen group\n"
             "Usage: schedule [<group_name/group_id>/timetable [fetch]]\n"
             "If no arguments are specified, the schedule of the user's group will be displayed.\n"
             "If a group name is specified, the schedule of that group will be displayed.\n"
@@ -124,7 +124,8 @@ namespace cmd {
                 name = strtools::single_split(name, '(');
                 name = std::string(name.begin(), name.end()-1);
                 try {
-                    schedule[class_-1][day] = name + "\n[" + type + "] | " + location + "\n" + teacher;
+                    if(schedule[class_-1][day] == " ") schedule[class_-1][day] = name + "\n[" + type + "] | " + location + "\n" + teacher;
+                    else schedule[class_-1][day] += "\n—————\n" + name + "\n[" + type + "] | " + location + "\n" + teacher;
                 } catch(const std::out_of_range& e) {
                     std::cerr << tcl::colorize("Invalid schedule data", tcl::RED) << std::endl;
                     return 1;

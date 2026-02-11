@@ -1,7 +1,7 @@
 # ProOrioks
 
 **ProOrioks is my console mini-program to access information from MIET's Orioks system**<br>
-_Latest version: 0.3.4 Alpha_
+_Latest version: 0.3.5 Alpha_
 
 # Using program
 

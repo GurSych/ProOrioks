@@ -10,7 +10,7 @@
 namespace cmd {
     class Groups : public cli::Command {
     public:
-        Groups() : Command("groups", "Display student groups and IDs",
+        Groups() : Command("groups", "Display student groups",
             "Command displays all student groups and their IDs\n"
             "Usage: groups [<group>/split]\n"
             "If no arguments are specified, all groups will be displayed\n"

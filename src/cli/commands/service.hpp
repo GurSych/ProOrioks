@@ -32,9 +32,9 @@ namespace cmd {
             std::cout << "Russian alphabet: " << "АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ" << std::endl
                       << "                  " << "абвгдеёжзийклмнопрстуфхцчшщъыьэюя" << std::endl;
             std::cout << "Special UNICODE symbols: " << "◎ — │ ┌ ┬ ┐ ├ ┼ ┤ └ ┴ ┘" << std::endl;
-            tmpl::HTable table{"Test Table",{"Header 1", "Header 2"}};
+            tmpl::HTable table{"Test Table",{"Header 1", "Header 2"},20};
             table.addRow({"Row 1", "Row 2"});
-            table.addRow({"Row 3", "Roooooooooooooooow 4\nNew line"});
+            table.addRow({"Row 3", "Roooooooooooooooow 4\nNew very long and interesting line"});
             table.print(true);
             return 0;
         }
